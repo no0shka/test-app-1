@@ -1,0 +1,287 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans:ital,wght@0,100..900;1,100..900&family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&family=Beiruti:wght@200..900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Delius+Unicase:wght@400;700&family=Edu+NSW+ACT+Cursive&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Noto+Sans+Mono:wght@100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Reem+Kufi:wght@400..700&family=Tilt+Neon&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+}
+img{
+  width: 150px;
+ }
+body {
+  min-height: 100vh;
+  padding: 30px 100px;
+  background: url("./assessts/main-bk.jpg") no-repeat center/cover;
+  font-family: "Noto Sans Mono", monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#root{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* header */
+.nav_links{
+  display: flex;
+  gap: 35px;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 15px 25px;
+  list-style-type: none;
+  box-shadow:0 2px 5px #0D3D6C ;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter:blur(12px) ;
+  button{
+    transition: 0.5s;
+  font-size: 2rem;
+    i{
+  font-size: 1.4rem;
+    }
+  }
+  button:hover{
+    text-shadow: 0 0.1px 15px white;
+    transform: scale(1.1);
+  }
+}
+
+input{
+  cursor: pointer;
+  outline: none;
+  height: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter:blur(12px) ;
+  border: none;
+  transition: 0.5s;
+}
+input[type='text']:focus{
+  padding: 2px 10px;
+  box-shadow: 0 0.1px 5px #0D3D6C;
+}
+button{
+    letter-spacing: 1.5px;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  
+
+
+  /* items */
+.no_items{
+  font-size: 1.5rem;
+  margin: 20px;
+}
+#welcome-bar{
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  width: 250px;
+  background-color: black;
+  color: white;
+  box-shadow: 0 1px 5px #0D3D6C;
+  border-radius: 10px;
+  padding: 10px;
+  p{
+    font-size: 0.75rem;
+text-align: justify;
+  }
+  transition: 1s;
+}
+#welcome-bar:hover{
+  transform: scale(0.9) translateY(12px);
+}
+
+.items_list{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  .item_list{
+    border: 1px solid #0D3D6C;
+    height: 300px;
+    width: 350px;
+    padding: 10px;
+    border-radius: 15px;
+  }
+  .div_img{
+    text-align: center;
+  }
+  h5{
+    font-size: 1rem;
+  }
+  .handleDes ,.handleRev{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.add_cancel_btn{
+margin: 15px 0 35px 0;
+padding: 10px 20px;
+border: 1px #0D3D6C solid;
+border-radius: 30px;
+box-shadow: 0 2px 5px #0D3D6C;
+transition: 0.5s;
+}
+.add_cancel_btn:hover{
+  transform: translateY(2px);
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+}
+
+/* add items */
+form{
+  height: 340px;
+  width: 600px;
+  padding: 20px 30px;
+  box-shadow:0 2px 5px #0D3D6C ;
+  border-radius: 20px;
+  border: 1px #0D3D6C solid;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter:blur(10px) ;
+
+  .form-content{
+  display: flex;
+  justify-content: space-between;
+    width: 100%;
+  }
+ .desc-form{
+  width: 100%;
+ }
+ 
+  .form-img{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img{
+      width: 80%;
+    }
+  }
+.rev_cont{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 70%;
+}
+  input{
+    margin:10px 0 15px 0;
+  }
+  [type='text']{
+    border-radius: 15px;
+    width: 100%;
+  padding: 2px 5px;
+}
+[type='file']{
+  width: 100%;
+background: none;
+border-radius: 15px;
+}
+/*********** Baseline, reset styles ***********/
+input[type="range"] {
+  backdrop-filter: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 150px;
+}
+
+/* Removes default focus */
+input[type="range"]:focus {
+  outline: none;
+}
+
+/******** Chrome, Safari, Opera and Edge Chromium styles ********/
+/* slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+  background-color: #0d3d6c;
+  border-radius: 0.5rem;
+  height: 0.3rem;
+  margin-top: 8px;
+}
+
+/* slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  margin-top: -6px; /* Centers thumb on the track */
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  height: 1rem;
+  width: 1.5rem;
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {
+  outline: 3px solid #ffffff;
+  outline-offset: 0.125rem;
+}
+
+/*********** Firefox styles ***********/
+
+
+/* slider thumb */
+input[type="range"]::-moz-range-thumb {
+  background-color: #ffffff;
+  border: none; /*Removes extra border that FF applies*/
+  border-radius: 0.5rem;
+  height: 1rem;
+  width: 1.5rem;
+}
+
+input[type="range"]:focus::-moz-range-thumb{
+  outline: 3px solid #ffffff;
+  outline-offset: 0.125rem;
+}
+  .add_cancel_btn{
+      margin:0;}
+}
+.form_btn{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+
+/* cart */
+.cart_items{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+.item-cart{
+display: flex;
+padding: 10px 20px;
+  box-shadow:0 2px 5px #0D3D6C ;
+  border-radius: 20px;
+button{
+  margin: 5px 10px;
+}
+}
+.title_count_cart{
+  display: flex;
+  justify-content: space-between;
+}
+.cart-img{display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content-cart{
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  
+}
