@@ -2,6 +2,7 @@ import React, { useRef ,useState,Fragment, useCallback, createContext,useContext
 import { useNavigate } from 'react-router-dom'
 import { UseContext } from '../index';
 import myGif from '../assessts/image-.gif';
+import UseCustom from './usecustom';
 
 
 function editState(state,action){
@@ -31,7 +32,9 @@ dispatch('HIDE')
 return () => clearTimeout(timer);
     },[State]);
 
-    
+
+    const [custom]=UseCustom('https://jsonplaceholder.typicode.com/todos');
+    console.log(custom);
 
 function Bar(){
     return(

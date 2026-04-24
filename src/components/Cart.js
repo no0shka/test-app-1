@@ -1,5 +1,6 @@
-import React, { Fragment, useContext } from 'react'
+import React, { createContext, Fragment, useContext } from 'react'
 import { UseContext,UseContextCart } from '../index';
+  const CompoundComponent=createContext();
 
 export default function Cart() {
   const {cartItems,setCartItems}=useContext(UseContextCart);
@@ -36,29 +37,64 @@ i===index? {...item,count:item.count+1} : item)
 
   return (
     <div className='cart_items'>
-      
       {cartItems && cartItems.length > 0 ? (
       cartItems.map((element,index)=>{
       return(
+        <CompoundComponent.Provider value={element}>
       <div className='item-cart'>
-        <div className='cart-img'><img  src={element.image} /></div>
+        <Cart.Img />
         <div className='content-cart'>
-          <div className='title_count_cart'>
-          <h5>{element.title}</h5>
-          <p>{element.count}</p>
-         </div>
-          <p>{element.description}</p>
+          <Cart.Title />
+          <Card.Description />
           <div>
-            <button className='add_cancel_btn' onClick={()=>handleRemove(element.index)}>Remove Item</button>
+            <Card.BtnRemove />
             <div>
-              <button className='add_cancel_btn' onClick={()=>minushandle(element.index)}><i class="fa-solid fa-circle-minus"></i></button>
-              <button className='add_cancel_btn' onClick={()=>plushandle(element.index)}><i class="fa-solid fa-circle-plus"></i></button></div>
+              <Card.BtnMinus />
+              <Card.BtnPlus />
+              </div>
           </div>
-           </div>
-      </div>)
-      
+          </div>
+      </div>
+      </CompoundComponent.Provider>
+      )
       })):
       (<p className='no_items'>No items found</p>)}
     </div>
   )
+}
+Cart.Img= function CardImage(){
+  const element = useContext(CompoundComponent);
+  return(<div className='cart-img'><img  src={element.image} /></div>
+);
+}
+Cart.Title=function CardTitle(){
+  const element =useContext(CompoundComponent);
+  return(<div className='title_count_cart'>
+          <h5>{element.title}</h5>
+          <p>{element.count}</p>
+          </div>)
+}
+Card.Description=function(){
+  const element=useContext(CompoundComponent);
+  return(
+          <p>{element.description}</p>);
+}
+
+Card.BtnRemove=function(){
+    const element=useContext(CompoundComponent);
+  return(            
+  <button className='add_cancel_btn' onClick={()=>handleRemove(element.index)}>Remove Item</button>
+)
+}
+Card.BtnMinus=function(){
+    const element=useContext(CompoundComponent);
+  return(              
+  <button className='add_cancel_btn' onClick={()=>minushandle(element.index)}><i class="fa-solid fa-circle-minus"></i></button>
+)
+}
+Card.BtnPlus=function(){
+    const element=useContext(CompoundComponent);
+  return(             
+    <button className='add_cancel_btn' onClick={()=>plushandle(element.index)}><i class="fa-solid fa-circle-plus"></i></button>
+)
 }
